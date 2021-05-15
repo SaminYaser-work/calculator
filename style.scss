@@ -1,0 +1,94 @@
+$calc-bg-color: HSL(0, 0%, 10%);
+$calc-operator-button-color: HSL(34, 95%, 52%);
+$calc-function-button-color: HSL(0, 0%, 75%);
+$calc-digit-button-color: HSL(0, 0%, 49%);
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;600&display=swap");
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    margin: 0;
+    border: 0;
+}
+
+#container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: "Roboto Mono", monospace;
+    font-weight: 600;
+}
+
+#calculator {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background: $calc-bg-color;
+    // border-radius: 1.5rem;
+}
+
+#display {
+    width: 100%;
+    min-height: 30vh;
+    display: flex;
+    justify-content: right;
+    align-items: flex-end;
+    font-weight: 100;
+    font-size: large;
+
+    [data-results] {
+        margin-bottom: 2rem;
+        margin-right: 2.5rem;
+        color: white;
+    }
+}
+
+#buttons {
+    width: fit-content;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+
+    .button-container {
+        width: 3rem;
+        height: 3rem;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    .button {
+        background: transparent;
+        font-weight: bolder;
+        font-size: large;
+    }
+
+    .operator-btn {
+        background: $calc-operator-button-color;
+        color: white;
+    }
+
+    .digit-btn {
+        background: $calc-digit-button-color;
+        color: white;
+    }
+
+    .function-btn {
+        background: $calc-function-button-color;
+    }
+
+    .long-btn {
+        grid-column: span 2 / auto;
+        width: auto;
+        border-radius: 1.5rem;
+    }
+}

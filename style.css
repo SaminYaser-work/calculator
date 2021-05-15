@@ -1,0 +1,119 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;600&display=swap");
+*,
+*::after,
+*::before {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  border: 0;
+}
+
+#container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-height: 100vh;
+  font-family: "Roboto Mono", monospace;
+  font-weight: 600;
+}
+
+#calculator {
+  height: 100vh;
+  width: 100vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: HSL(0, 0%, 10%);
+}
+
+#display {
+  width: 100%;
+  min-height: 30vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: right;
+      -ms-flex-pack: right;
+          justify-content: right;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  font-weight: 100;
+  font-size: large;
+}
+
+#display [data-results] {
+  margin-bottom: 2rem;
+  margin-right: 2.5rem;
+  color: white;
+}
+
+#buttons {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+#buttons .button-container {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+}
+
+#buttons .button {
+  background: transparent;
+  font-weight: bolder;
+  font-size: large;
+}
+
+#buttons .operator-btn {
+  background: HSL(34, 95%, 52%);
+  color: white;
+}
+
+#buttons .digit-btn {
+  background: HSL(0, 0%, 49%);
+  color: white;
+}
+
+#buttons .function-btn {
+  background: HSL(0, 0%, 75%);
+}
+
+#buttons .long-btn {
+  grid-column: span 2 / auto;
+  width: auto;
+  border-radius: 1.5rem;
+}
+/*# sourceMappingURL=style.css.map */
