@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;600&display=swap");
 *,
 *::after,
@@ -21,11 +22,12 @@
   min-height: 100vh;
   font-family: "Roboto Mono", monospace;
   font-weight: 600;
+  background-image: radial-gradient(circle at 67% 83%, rgba(245, 245, 245, 0.05) 0%, rgba(245, 245, 245, 0.05) 1%, transparent 1%, transparent 5%, transparent 5%, transparent 100%), radial-gradient(circle at 24% 80%, rgba(245, 245, 245, 0.05) 0%, rgba(245, 245, 245, 0.05) 27%, transparent 27%, transparent 63%, transparent 63%, transparent 100%), radial-gradient(circle at 23% 5%, rgba(245, 245, 245, 0.05) 0%, rgba(245, 245, 245, 0.05) 26%, transparent 26%, transparent 82%, transparent 82%, transparent 100%), radial-gradient(circle at 21% 11%, rgba(245, 245, 245, 0.05) 0%, rgba(245, 245, 245, 0.05) 35%, transparent 35%, transparent 45%, transparent 45%, transparent 100%), radial-gradient(circle at 10% 11%, rgba(245, 245, 245, 0.05) 0%, rgba(245, 245, 245, 0.05) 21%, transparent 21%, transparent 81%, transparent 81%, transparent 100%), radial-gradient(circle at 19% 61%, rgba(245, 245, 245, 0.05) 0%, rgba(245, 245, 245, 0.05) 20%, transparent 20%, transparent 61%, transparent 61%, transparent 100%), radial-gradient(circle at 13% 77%, rgba(245, 245, 245, 0.05) 0%, rgba(245, 245, 245, 0.05) 63%, transparent 63%, transparent 72%, transparent 72%, transparent 100%), radial-gradient(circle at 30% 93%, rgba(245, 245, 245, 0.05) 0%, rgba(245, 245, 245, 0.05) 33%, transparent 33%, transparent 82%, transparent 82%, transparent 100%), -webkit-gradient(linear, left top, right top, from(#16b0cf), to(#6707d7));
+  background-image: radial-gradient(circle at 67% 83%, rgba(245, 245, 245, 0.05) 0%, rgba(245, 245, 245, 0.05) 1%, transparent 1%, transparent 5%, transparent 5%, transparent 100%), radial-gradient(circle at 24% 80%, rgba(245, 245, 245, 0.05) 0%, rgba(245, 245, 245, 0.05) 27%, transparent 27%, transparent 63%, transparent 63%, transparent 100%), radial-gradient(circle at 23% 5%, rgba(245, 245, 245, 0.05) 0%, rgba(245, 245, 245, 0.05) 26%, transparent 26%, transparent 82%, transparent 82%, transparent 100%), radial-gradient(circle at 21% 11%, rgba(245, 245, 245, 0.05) 0%, rgba(245, 245, 245, 0.05) 35%, transparent 35%, transparent 45%, transparent 45%, transparent 100%), radial-gradient(circle at 10% 11%, rgba(245, 245, 245, 0.05) 0%, rgba(245, 245, 245, 0.05) 21%, transparent 21%, transparent 81%, transparent 81%, transparent 100%), radial-gradient(circle at 19% 61%, rgba(245, 245, 245, 0.05) 0%, rgba(245, 245, 245, 0.05) 20%, transparent 20%, transparent 61%, transparent 61%, transparent 100%), radial-gradient(circle at 13% 77%, rgba(245, 245, 245, 0.05) 0%, rgba(245, 245, 245, 0.05) 63%, transparent 63%, transparent 72%, transparent 72%, transparent 100%), radial-gradient(circle at 30% 93%, rgba(245, 245, 245, 0.05) 0%, rgba(245, 245, 245, 0.05) 33%, transparent 33%, transparent 82%, transparent 82%, transparent 100%), linear-gradient(90deg, #16b0cf, #6707d7);
 }
 
 #calculator {
-  height: 100vh;
-  width: 100vw;
+  padding: 1rem 1rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -40,6 +42,7 @@
       -ms-flex-align: center;
           align-items: center;
   background: HSL(0, 0%, 10%);
+  border-radius: 1.5rem;
 }
 
 #display {
@@ -56,12 +59,28 @@
           align-items: flex-end;
   font-weight: 100;
   font-size: large;
+  font-family: "Source Code Pro", monospace;
 }
 
-#display [data-results] {
+#display #results {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  min-height: 5rem;
   margin-bottom: 2rem;
-  margin-right: 2.5rem;
+  margin-right: 0.5rem;
   color: white;
+}
+
+#display h4 {
+  margin-bottom: 1rem;
 }
 
 #buttons {
@@ -95,6 +114,10 @@
   background: transparent;
   font-weight: bolder;
   font-size: large;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 #buttons .operator-btn {
