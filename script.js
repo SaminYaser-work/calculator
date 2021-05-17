@@ -13,7 +13,6 @@ const secondOperand = document.querySelector("[data-results-bottom]");
 //when equal or other operator is pressed again, show results in second display
 //clear first display
 
-
 class Calculator {
     constructor(firstOperand, secondOperand) {
         this.firstOperand = firstOperand;
@@ -27,13 +26,36 @@ class Calculator {
         this.currentOperator = undefined;
     }
 
-    showToDisplay(flag) {
-        this.secondOperand.innerText = this.currentOperand; 
-        if (this.currentOperator !== undefined && flag) {
-            this.firstOperand.innerText = this.secondOperand.innerText + this.currentOperator;
+    showToDisplay() {
+        if (this.firstOperand.innerText != "" || this.currentOperand != "") {
+            this.secondOperand.innerText = this.currentOperand;
+        } else {
             this.secondOperand.innerText = "";
+            this.firstOperand.innerText =
+                this.prevOperand + this.currentOperator;
+        }
+    }
+
+    chooseOperation(operation) {
+        if (this.currentOperand == "") return;
+        if (this.currentOperator != undefined) {
+            this.currentOperand = this.compute();
+            this.firstOperand.innerText = "";
+            console.log(
+                this.prevOperand,
+                this.currentOperand,
+                this.currentOperator
+            );
+        } else {
+            this.currentOperator = operation;
             this.prevOperand = this.currentOperand;
             this.currentOperand = "";
+            console.log(
+                "else",
+                this.prevOperand,
+                this.currentOperand,
+                this.currentOperator
+            );
         }
     }
 
@@ -44,7 +66,46 @@ class Calculator {
     }
 
     compute(operator) {
-        this.currentOperator = operator;
+        console.log("computing");
+        let result;
+        console.log(
+            this.prevOperand,
+            this.currentOperand,
+            this.currentOperator
+        );
+        console.log(parseFloat(this.prevOperand));
+
+        switch (this.currentOperator) {
+            case "+":
+                result =
+                    parseFloat(this.prevOperand) +
+                    parseFloat(this.currentOperand);
+                break;
+            case "-":
+                result =
+                    parseFloat(this.prevOperand) -
+                    parseFloat(this.currentOperand);
+                break;
+            case "×":
+                result =
+                    parseFloat(this.prevOperand) *
+                    parseFloat(this.currentOperand);
+                break;
+            case "/":
+                result =
+                    parseFloat(this.prevOperand) /
+                    parseFloat(this.currentOperand);
+                break;
+            case "%":
+                result =
+                    parseFloat(this.prevOperand) %
+                    parseFloat(this.currentOperand);
+                break;
+        }
+
+        this.currentOperator = undefined;
+        console.log(result);
+        return result;
     }
 }
 
@@ -59,13 +120,14 @@ operands.forEach((elements) => {
 
 operators.forEach((elements) => {
     elements.addEventListener("click", () => {
-       calculator.compute(elements.innerText);
-       calculator.showToDisplay(true);
+        calculator.chooseOperation(elements.innerText);
+        calculator.showToDisplay();
     });
 });
 
 equal.forEach((elements) => {
     elements.addEventListener("click", () => {
-        console.log(elements.innerText);
+        calculator.chooseOperation(elements.innerText);
+        calculator.showToDisplay();
     });
 });

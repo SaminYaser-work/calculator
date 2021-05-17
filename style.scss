@@ -129,8 +129,13 @@ $calc-digit-button-color: HSL(0, 0%, 49%);
         color: white;
     }
 
+    h2 {
+        min-height: 2rem;
+    }
+
     h4 {
         margin-bottom: 1rem;
+        min-height: 1rem;
     }
 }
 

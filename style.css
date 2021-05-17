@@ -79,8 +79,13 @@
   color: white;
 }
 
+#display h2 {
+  min-height: 2rem;
+}
+
 #display h4 {
   margin-bottom: 1rem;
+  min-height: 1rem;
 }
 
 #buttons {
