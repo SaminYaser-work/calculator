@@ -3,15 +3,7 @@ const operators = document.querySelectorAll(".button-container.operator"); //ope
 const equal = document.querySelectorAll(".button-container.equal");
 const firstOperand = document.querySelector("[data-results-top]");
 const secondOperand = document.querySelector("[data-results-bottom]");
-
-//take input
-//append to a string var
-//display the string var
-//when operator button pressed, set currentOperand, transfer the whole string to firstOperand display field
-//secondOperand is empty
-//take input for the second operator
-//when equal or other operator is pressed again, show results in second display
-//clear first display
+const clearAll = document.querySelector(".clearAll");
 
 class Calculator {
     constructor(firstOperand, secondOperand) {
@@ -24,12 +16,14 @@ class Calculator {
         this.prevOperand = "";
         this.currentOperand = "";
         this.currentOperator = undefined;
+        this.firstOperand.innerText = "";
+        this.secondOperand.innerText = "";
     }
 
     showToDisplay() {
         if (this.firstOperand.innerText != "" || this.currentOperand != "") {
             this.secondOperand.innerText = this.currentOperand;
-        } else {
+        } else if (this.currentOperator != undefined) {
             this.secondOperand.innerText = "";
             this.firstOperand.innerText =
                 this.prevOperand + this.currentOperator;
@@ -68,12 +62,6 @@ class Calculator {
     compute(operator) {
         console.log("computing");
         let result;
-        console.log(
-            this.prevOperand,
-            this.currentOperand,
-            this.currentOperator
-        );
-        console.log(parseFloat(this.prevOperand));
 
         switch (this.currentOperator) {
             case "+":
@@ -104,8 +92,8 @@ class Calculator {
         }
 
         this.currentOperator = undefined;
-        console.log(result);
-        return result;
+        if (result) return result.toString();
+        return "MATH ERROR";
     }
 }
 
@@ -130,4 +118,16 @@ equal.forEach((elements) => {
         calculator.chooseOperation(elements.innerText);
         calculator.showToDisplay();
     });
+});
+
+// clearAll.forEach((elements) => {
+//     elements.addEventListener("click", () => {
+//         calculator.clear();
+//         calculator.showToDisplay();
+//     });
+// });
+
+clearAll.addEventListener("click", () => {
+    calculator.clear();
+    calculator.showToDisplay();
 });
